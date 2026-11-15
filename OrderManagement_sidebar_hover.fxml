@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="DBScreen" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Starter_App.Starter_Ap.OrderControllor">
+            
+   <stylesheets>
+      <URL value="@style.css" />
+   </stylesheets>
+   
+   <children>
+      <VBox fx:id="Sidebar" alignment="TOP_CENTER" layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="132.0" spacing="7.0" styleClass="Sidebar">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Vector-6.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="Dashboard" mnemonicParsing="false" onAction="#Sidebar" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Dashboard" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="26.0">
+                     <image>
+                        <Image url="@images/icon_home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="Customer" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Customer" textFill="WHITE" />
+            <Button fx:id="Product" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Product" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="27.0">
+                     <image>
+                        <Image url="@icon_janitor.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="OrdersManagement" mnemonicParsing="false" onAction="#Sidebar" prefHeight="32.0" prefWidth="112.0" styleClass="sidebar-button active-sidebar-button" text="Orders" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
+            <Button fx:id="Delivery" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Delivery" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="33.0">
+                     <image>
+                        <Image url="@images/icon_truck.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Inventory" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Inventory" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="26.0">
+                     <image>
+                        <Image url="@images/icon_clock.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="Review" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Review" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="35.0">
+                     <image>
+                        <Image url="@images/icon_mail.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children></VBox>
+      <Text fill="WHITE" layoutX="153.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Management">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField layoutX="153.0" layoutY="51.0" prefHeight="29.0" prefWidth="329.0" promptText="Search orders, Customers, Products" style="-fx-background-color: #1D2633; -fx-text-fill: white; -fx-prompt-text-fill: #9AA7B8;" />
+      
+      <ImageView fitHeight="58.0" fitWidth="70.0" layoutX="151.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/26_Light_create%20new%20password-4.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="70.0" layoutX="239.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/26_Light_create%20new%20password-5.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="70.0" layoutX="327.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/26_Light_create%20new%20password-6.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="70.0" layoutX="415.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/26_Light_create%20new%20password-3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="70.0" layoutX="503.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/26_Light_create%20new%20password-7.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="totalOrdersLabel" layoutX="166.0" layoutY="150.0" text="Total Orders" textFill="WHITE" />
+      <Label fx:id="processingLabel" layoutX="250.0" layoutY="152.0" text="Processing" textFill="#fffdfd" />
+      <Label fx:id="shippedLabel" layoutX="340.0" layoutY="153.0" text="Shipped" textFill="WHITE" />
+      <Label fx:id="deliveryLabel" layoutX="430.0" layoutY="152.0" text="Delivery" textFill="WHITE" />
+      <Label fx:id="returnLabel" layoutX="520.0" layoutY="158.0" text="Returned" textFill="WHITE" />
+      <TableView fx:id="ordersTable" layoutX="151.0" layoutY="215.0" maxHeight="180.0" maxWidth="-Infinity" minHeight="180.0" minWidth="-Infinity" prefHeight="180.0" prefWidth="448.0" style="-fx-background-color: #0B131E;">
+        <columns>
+          <TableColumn fx:id="checkboxcolumn" prefWidth="75.0" />
+            <TableColumn fx:id="OrderIDcolumn" prefWidth="75.0" text="Order ID" />
+            <TableColumn fx:id="Customercolumn" prefWidth="75.0" text="Customer" />
+            <TableColumn fx:id="Productcolumn" prefWidth="75.0" text="Product." />
+            <TableColumn fx:id="Status" prefWidth="75.0" text="Status." />
+            <TableColumn fx:id="Total" prefWidth="75.0" text="Total." />
+            <TableColumn prefWidth="75.0" text="Column X" />
+            <TableColumn prefWidth="75.0" text="Column X" />
+        </columns>
+      </TableView>
+      <Text fill="WHITE" layoutX="162.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ORDERS">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="Customer1" layoutX="551.0" layoutY="193.0" mnemonicParsing="false" style="-fx-background-color: #121B26;" text="ALL" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font></Button>
+      <Button fx:id="Customer11" layoutX="493.0" layoutY="194.0" mnemonicParsing="false" style="-fx-background-color: #121B26;" text="Shipped" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="Customer12" layoutX="382.0" layoutY="194.0" mnemonicParsing="false" style="-fx-background-color: #121B26;" text="Delivered" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="Customer13" layoutX="434.0" layoutY="194.0" mnemonicParsing="false" style="-fx-background-color: #121B26;" text="Processing" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="Customer121" layoutX="334.0" layoutY="195.0" mnemonicParsing="false" style="-fx-background-color: #121B26;" text="Retruned" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="ALLData" layoutX="578.0" layoutY="183.0" mnemonicParsing="false" onAction="#Table" prefHeight="24.0" prefWidth="22.0" style="-fx-background-color: #121B26;" text="ALL" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font></Button>
+      <Button fx:id="ShippedData" layoutX="522.0" layoutY="184.0" mnemonicParsing="false" onAction="#Table" prefHeight="24.0" prefWidth="54.0" style="-fx-background-color: #121B26;" text="Shipped" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="DeliveredData" layoutX="372.0" layoutY="184.0" mnemonicParsing="false" onAction="#Table" prefHeight="24.0" prefWidth="68.0" style="-fx-background-color: #121B26;" text="Delivered" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="ProcessingData" layoutX="444.0" layoutY="184.0" mnemonicParsing="false" onAction="#Table" prefHeight="24.0" prefWidth="74.0" style="-fx-background-color: #121B26;" text="Processing" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="ReturnData" layoutX="310.0" layoutY="184.0" mnemonicParsing="false" onAction="#Table" prefHeight="24.0" prefWidth="58.0" style="-fx-background-color: #121B26;" text="Retruned" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Text fill="WHITE" layoutX="539.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!--
+  Controller-ready user dashboard.
+  Set fx:controller to your dashboard controller once it exists, then populate the
+  Labels marked with fx:id from the current user's products and order data.
+-->
+<AnchorPane minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" styleClass="DBScreen" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Starter_App.Starter_Ap.UserDashboardController">
+   <stylesheets>
+      <URL value="@user-dashboard.css" />
+   </stylesheets>
+
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" alignment="TOP_CENTER" prefWidth="132.0" spacing="7.0" styleClass="Sidebar">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/Vector-6.png" /></image></ImageView>
+            <Button fx:id="dashboardButton" mnemonicParsing="false" onAction="#showDashboard" prefHeight="32.0" prefWidth="112.0" styleClass="sidebar-button active-sidebar-button" text="Dashboard" textFill="WHITE"><font><Font size="17.0" /></font></Button>
+            <Button fx:id="profileButton" mnemonicParsing="false" onAction="#showProfile" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Profile" textFill="WHITE" />
+            <Button fx:id="productsButton" mnemonicParsing="false" onAction="#showProducts" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Products" textFill="WHITE"><graphic><ImageView fitHeight="30.0" fitWidth="27.0"><image><Image url="@icon_janitor.png" /></image></ImageView></graphic></Button>
+            <Button fx:id="ordersButton" mnemonicParsing="false" onAction="#showOrders" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Orders" textFill="WHITE" />
+            <Button fx:id="deliveryButton" mnemonicParsing="false" onAction="#showDelivery" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Delivery" textFill="WHITE"><graphic><ImageView fitHeight="36.0" fitWidth="33.0"><image><Image url="@images/icon_truck.png" /></image></ImageView></graphic></Button>
+            <Button fx:id="cartButton" mnemonicParsing="false" onAction="#showCart" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Cart" textFill="WHITE"><graphic><ImageView fitHeight="25.0" fitWidth="26.0"><image><Image url="@images/icon_clock.png" /></image></ImageView></graphic></Button>
+            <Button fx:id="reviewButton" mnemonicParsing="false" onAction="#showReview" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Review" textFill="WHITE"><graphic><ImageView fitHeight="33.0" fitWidth="35.0"><image><Image url="@images/icon_mail.png" /></image></ImageView></graphic></Button>
+         </children>
+      </VBox>
+
+      <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fitToWidth="true" hbarPolicy="NEVER" styleClass="dashboard-scroll">
+         <content>
+            <VBox maxWidth="Infinity" prefWidth="468.0" spacing="8.0" styleClass="main-content">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="12.0">
+                     <children>
+                        <VBox spacing="4.0">
+                           <children>
+                              <Text styleClass="page-title" text="Your dashboard" />
+                              <Label styleClass="page-subtitle" text="A live view of your products, orders and personalised picks." />
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refreshDashboard" styleClass="refresh-button" text="↻  Refresh" />
+                        <StackPane prefHeight="40.0" prefWidth="40.0" styleClass="avatar">
+                           <children>
+                              <Label fx:id="userInitialsLabel" styleClass="avatar-text" text="U" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+
+                  <VBox spacing="12.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="section-title" text="Order overview" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label styleClass="updated-label" text="Updated just now" />
+                           </children>
+                        </HBox>
+                        <GridPane hgap="6.0" vgap="6.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" />
+                              <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" />
+                              <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" />
+                              <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" />
+                              <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" />
+                           </columnConstraints>
+                           <children>
+                              <StackPane GridPane.columnIndex="0" prefHeight="82.0" styleClass="metric-frame"><children><ImageView fitHeight="82.0" fitWidth="84.0" opacity="0.28" preserveRatio="false"><image><Image url="@images/Frame-8.png" /></image></ImageView><VBox prefHeight="82.0" spacing="2.0" styleClass="metric-card image-metric-card processing-card"><children><Label styleClass="metric-title" text="Processing" /><Label fx:id="processingCountLabel" styleClass="metric-value" text="0" /><Label styleClass="metric-helper" text="Preparing" /></children></VBox></children></StackPane>
+                              <StackPane GridPane.columnIndex="1" prefHeight="82.0" styleClass="metric-frame"><children><ImageView fitHeight="82.0" fitWidth="84.0" opacity="0.28" preserveRatio="false"><image><Image url="@images/Frame-10.png" /></image></ImageView><VBox prefHeight="82.0" spacing="2.0" styleClass="metric-card image-metric-card return-card"><children><Label styleClass="metric-title" text="Returned" /><Label fx:id="returnedCountLabel" styleClass="metric-value" text="0" /><Label styleClass="metric-helper" text="Orders" /></children></VBox></children></StackPane>
+                              <StackPane GridPane.columnIndex="2" prefHeight="82.0" styleClass="metric-frame"><children><ImageView fitHeight="82.0" fitWidth="84.0" opacity="0.28" preserveRatio="false"><image><Image url="@images/Frame-7.png" /></image></ImageView><VBox prefHeight="82.0" spacing="2.0" styleClass="metric-card image-metric-card shipped-card"><children><Label styleClass="metric-title" text="Shipped" /><Label fx:id="shippedCountLabel" styleClass="metric-value" text="0" /><Label styleClass="metric-helper" text="On the way" /></children></VBox></children></StackPane>
+                              <StackPane GridPane.columnIndex="3" prefHeight="82.0" styleClass="metric-frame"><children><ImageView fitHeight="82.0" fitWidth="84.0" opacity="0.28" preserveRatio="false"><image><Image url="@images/Frame-6.png" /></image></ImageView><VBox prefHeight="82.0" spacing="2.0" styleClass="metric-card image-metric-card delivered-card"><children><Label styleClass="metric-title" text="Delivered" /><Label fx:id="deliveredCountLabel" styleClass="metric-value" text="0" /><Label styleClass="metric-helper" text="Orders" /></children></VBox></children></StackPane>
+                              <StackPane GridPane.columnIndex="4" prefHeight="82.0" styleClass="metric-frame"><children><ImageView fitHeight="82.0" fitWidth="84.0" opacity="0.28" preserveRatio="false"><image><Image url="@images/Frame-9.png" /></image></ImageView><VBox prefHeight="82.0" spacing="2.0" styleClass="metric-card image-metric-card total-card"><children><Label styleClass="metric-title" text="Products" /><Label fx:id="totalProductsCountLabel" styleClass="metric-value" text="0" /><Label styleClass="metric-helper" text="My total" /></children></VBox></children></StackPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+
+                  <HBox spacing="8.0">
+                     <children>
+                        <VBox HBox.hgrow="ALWAYS" prefWidth="218.0" spacing="4.0" styleClass="ranking-panel">
+                           <children>
+                              <HBox alignment="CENTER_LEFT"><children><VBox spacing="2.0"><children><Label styleClass="section-title" text="Top 5 in the market" /><Label styleClass="panel-subtitle" text="Best-selling products right now" /></children></VBox><Region HBox.hgrow="ALWAYS" /><Label styleClass="panel-icon" text="↗" /></children></HBox>
+                              <Separator styleClass="panel-separator" />
+                              <VBox spacing="7.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" styleClass="ranking-row"><children><Label styleClass="rank-number top-rank" text="1" /><Label fx:id="marketProduct1Label" HBox.hgrow="ALWAYS" styleClass="product-name" text="No market data yet" /><Label fx:id="marketProduct1SalesLabel" styleClass="sales-label" text="0 sold" /></children></HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="ranking-row"><children><Label styleClass="rank-number" text="2" /><Label fx:id="marketProduct2Label" HBox.hgrow="ALWAYS" styleClass="product-name" text="—" /><Label fx:id="marketProduct2SalesLabel" styleClass="sales-label" text="0 sold" /></children></HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="ranking-row"><children><Label styleClass="rank-number" text="3" /><Label fx:id="marketProduct3Label" HBox.hgrow="ALWAYS" styleClass="product-name" text="—" /><Label fx:id="marketProduct3SalesLabel" styleClass="sales-label" text="0 sold" /></children></HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="ranking-row"><children><Label styleClass="rank-number" text="4" /><Label fx:id="marketProduct4Label" HBox.hgrow="ALWAYS" styleClass="product-name" text="—" /><Label fx:id="marketProduct4SalesLabel" styleClass="sales-label" text="0 sold" /></children></HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="ranking-row"><children><Label styleClass="rank-number" text="5" /><Label fx:id="marketProduct5Label" HBox.hgrow="ALWAYS" styleClass="product-name" text="—" /><Label fx:id="marketProduct5SalesLabel" styleClass="sales-label" text="0 sold" /></children></HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+
+                        <VBox HBox.hgrow="ALWAYS" prefWidth="218.0" spacing="4.0" styleClass="ranking-panel recommended-panel">
+                           <children>
+                              <HBox alignment="CENTER_LEFT"><children><VBox spacing="2.0"><children><Label styleClass="section-title" text="Recommended for you" /><Label styleClass="panel-subtitle" text="Chosen from your activity and interests" /></children></VBox><Region HBox.hgrow="ALWAYS" /><Label styleClass="panel-icon heart-icon" text="♥" /></children></HBox>
+                              <Separator styleClass="panel-separator" />
+                              <VBox spacing="7.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" styleClass="ranking-row"><children><Label styleClass="rank-number recommend-rank" text="1" /><Label fx:id="recommendedProduct1Label" HBox.hgrow="ALWAYS" styleClass="product-name" text="No recommendations yet" /><Button fx:id="viewRecommendedProduct1Button" mnemonicParsing="false" onAction="#viewRecommendedProduct" styleClass="view-button" text="View" /></children></HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="ranking-row"><children><Label styleClass="rank-number recommend-rank" text="2" /><Label fx:id="recommendedProduct2Label" HBox.hgrow="ALWAYS" styleClass="product-name" text="—" /><Button fx:id="viewRecommendedProduct2Button" mnemonicParsing="false" onAction="#viewRecommendedProduct" styleClass="view-button" text="View" /></children></HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="ranking-row"><children><Label styleClass="rank-number recommend-rank" text="3" /><Label fx:id="recommendedProduct3Label" HBox.hgrow="ALWAYS" styleClass="product-name" text="—" /><Button fx:id="viewRecommendedProduct3Button" mnemonicParsing="false" onAction="#viewRecommendedProduct" styleClass="view-button" text="View" /></children></HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="ranking-row"><children><Label styleClass="rank-number recommend-rank" text="4" /><Label fx:id="recommendedProduct4Label" HBox.hgrow="ALWAYS" styleClass="product-name" text="—" /><Button fx:id="viewRecommendedProduct4Button" mnemonicParsing="false" onAction="#viewRecommendedProduct" styleClass="view-button" text="View" /></children></HBox>
+                                    <HBox alignment="CENTER_LEFT" styleClass="ranking-row"><children><Label styleClass="rank-number recommend-rank" text="5" /><Label fx:id="recommendedProduct5Label" HBox.hgrow="ALWAYS" styleClass="product-name" text="—" /><Button fx:id="viewRecommendedProduct5Button" mnemonicParsing="false" onAction="#viewRecommendedProduct" styleClass="view-button" text="View" /></children></HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

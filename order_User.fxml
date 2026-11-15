@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="order_User" prefHeight="400.0" prefWidth="600.0" styleClass="DBScreen" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Starter_App.Starter_Ap.Controlloruser.Order_User">
+
+   <stylesheets>
+      <URL value="@order-user.css" />
+   </stylesheets>
+
+   <children>
+      <VBox fx:id="Sidebar" alignment="TOP_CENTER" layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="132.0" spacing="7.0" styleClass="Sidebar">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Vector-6.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="userDashboard" mnemonicParsing="false" onAction="#Sidebar" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Dashboard" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="26.0">
+                     <image>
+                        <Image url="@images/icon_home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Customer" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Customer" textFill="WHITE" >
+            <graphic>
+            <ImageView fitHeight="30.0" fitWidth="27.0">
+               <image>
+                  <Image url="@images/customer.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         </Button>
+            <Button fx:id="Product" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Products" textFill="WHITE">
+            
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="27.0">
+                     <image>
+                        <Image url="@images/icons8-product-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="userorders" mnemonicParsing="false" onAction="#Sidebar" prefHeight="32.0" prefWidth="112.0" styleClass="sidebar-button active-sidebar-button" text="Orders" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="Delivery" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Delivery" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="33.0">
+                     <image>
+                        <Image url="@images/icon_truck.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Inventory" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Cart" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="26.0">
+                     <image>
+                        <Image url="@images/icon_clock.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Review" mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Review" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="35.0">
+                     <image>
+                        <Image url="@images/icon_mail.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+
+      <Text fill="WHITE" layoutX="153.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Orders">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="539.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER" />
+
+      <TextField fx:id="searchField" layoutX="153.0" layoutY="51.0" prefHeight="29.0" prefWidth="329.0" promptText="Search order ID, customer name, product name" styleClass="search-field" />
+
+      <VBox layoutX="153.0" layoutY="92.0" prefHeight="94.0" prefWidth="128.0" spacing="4.0" styleClass="total-card">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+               <children>
+                  <ImageView fitHeight="34.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/26_Light_create%20new%20password-4.png" />
+                     </image>
+                  </ImageView>
+                  <Label styleClass="mini-title" text="Total Orders" textFill="WHITE" />
+               </children>
+            </HBox>
+            <Label fx:id="totalOrdersLabel" styleClass="total-number" text="0" textFill="WHITE" />
+            <Label styleClass="helper-text" text="All your orders" textFill="#9AA7B8" />
+         </children>
+      </VBox>
+
+      <BarChart fx:id="activityBarChart" animated="false" layoutX="292.0" layoutY="84.0" legendVisible="false" prefHeight="116.0" prefWidth="298.0" styleClass="activity-chart">
+         <xAxis>
+            <CategoryAxis fx:id="activityCategoryAxis" label="Items" side="BOTTOM" tickLabelFill="WHITE" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis fx:id="activityNumberAxis" label="Orders" side="LEFT" tickLabelFill="WHITE" />
+         </yAxis>
+      </BarChart>
+
+      <Text fill="WHITE" layoutX="162.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recommended For You">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+
+      <HBox layoutX="153.0" layoutY="221.0" prefHeight="45.0" prefWidth="437.0" spacing="8.0">
+         <children>
+            <VBox prefHeight="45.0" prefWidth="103.0" styleClass="recommendation-card">
+               <children>
+                  <Label fx:id="recommendationOneLabel" styleClass="recommendation-title" text="Wireless Mouse" textFill="WHITE" />
+                  <Label styleClass="recommendation-subtitle" text="Based on tech orders" textFill="#9AA7B8" />
+               </children>
+            </VBox>
+            <VBox prefHeight="45.0" prefWidth="103.0" styleClass="recommendation-card">
+               <children>
+                  <Label fx:id="recommendationTwoLabel" styleClass="recommendation-title" text="Notebook Pack" textFill="WHITE" />
+                  <Label styleClass="recommendation-subtitle" text="Often bought again" textFill="#9AA7B8" />
+               </children>
+            </VBox>
+            <VBox prefHeight="45.0" prefWidth="103.0" styleClass="recommendation-card">
+               <children>
+                  <Label fx:id="recommendationThreeLabel" styleClass="recommendation-title" text="Desk Lamp" textFill="WHITE" />
+                  <Label styleClass="recommendation-subtitle" text="Matches your cart" textFill="#9AA7B8" />
+               </children>
+            </VBox>
+            <VBox prefHeight="45.0" prefWidth="103.0" styleClass="recommendation-card">
+               <children>
+                  <Label fx:id="recommendationFourLabel" styleClass="recommendation-title" text="Travel Bottle" textFill="WHITE" />
+                  <Label styleClass="recommendation-subtitle" text="Popular choice" textFill="#9AA7B8" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+
+      <Text fill="WHITE" layoutX="162.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ORDERS">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+
+      <TableView fx:id="ordersTable" layoutX="151.0" layoutY="298.0" maxHeight="96.0" maxWidth="-Infinity" minHeight="96.0" minWidth="-Infinity" prefHeight="96.0" prefWidth="448.0" styleClass="orders-table">
+        <columns>
+          <TableColumn fx:id="actionColumn" prefWidth="42.0" text="..." />
+          <TableColumn fx:id="OrderIDcolumn" prefWidth="60.0" text="Order ID" />
+          <TableColumn fx:id="Customercolumn" prefWidth="68.0" text="Customer" />
+          <TableColumn fx:id="Productcolumn" prefWidth="74.0" text="Product" />
+          <TableColumn fx:id="Status" prefWidth="68.0" text="Status" />
+          <TableColumn fx:id="Total" prefWidth="64.0" text="Total" />
+           <TableColumn fx:id="Address" prefWidth="60.0" text="Address" />
+        </columns>
+      </TableView>
+
+      <AnchorPane fx:id="popupOverlay" layoutX="132.0" layoutY="0.0" managed="false" prefHeight="400.0" prefWidth="468.0" styleClass="popup-overlay" visible="false">
+         <children>
+            <VBox fx:id="orderActionPopup" layoutX="137.0" layoutY="122.0" prefHeight="126.0" prefWidth="194.0" spacing="9.0" styleClass="small-popup">
+               <children>
+                  <Label styleClass="popup-title" text="Order Action" textFill="WHITE" />
+                  <Label fx:id="selectedOrderLabel" styleClass="popup-text" text="Choose what you want to do." textFill="#9AA7B8" wrapText="true" />
+                  <HBox spacing="8.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#openConfirmOrderPopup" prefWidth="86.0" styleClass="confirm-button" text="Confirm" />
+                        <Button mnemonicParsing="false" onAction="#openCancelOrderPopup" prefWidth="86.0" styleClass="cancel-button" text="Cancel" />
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#closePopups" prefWidth="178.0" styleClass="popup-close-button" text="Close" />
+               </children>
+            </VBox>
+
+            <VBox fx:id="confirmOrderPopup" layoutX="139.0" layoutY="126.0" managed="false" prefHeight="118.0" prefWidth="190.0" spacing="9.0" styleClass="small-popup" visible="false">
+               <children>
+                  <Label styleClass="popup-title" text="Confirm Order" textFill="WHITE" />
+                  <Label fx:id="confirmOrderTextLabel" styleClass="popup-text" text="Do you want to confirm this order?" textFill="#9AA7B8" wrapText="true" />
+                  <HBox spacing="8.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleCancelOrder" prefWidth="86.0" styleClass="confirm-button" text="Yes" />
+                        <Button mnemonicParsing="false" onAction="#closePopups" prefWidth="86.0" styleClass="popup-close-button" text="No" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+
+            <VBox fx:id="cancelOrderPopup" layoutX="126.0" layoutY="82.0" managed="false" prefHeight="236.0" prefWidth="216.0" spacing="8.0" styleClass="small-popup" visible="false">
+               <children>
+                  <Label styleClass="popup-title" text="Cancel Order" textFill="WHITE" />
+                  <Label fx:id="cancelOrderTextLabel" styleClass="popup-text" text="Tell us why you want to cancel." textFill="#9AA7B8" wrapText="true" />
+                  <ComboBox fx:id="cancelReasonComboBox" prefWidth="196.0" promptText="Select reason" styleClass="popup-input" />
+                  <TextArea fx:id="cancelNoteTextArea" prefHeight="68.0" prefWidth="196.0" promptText="Write short note" styleClass="popup-input" wrapText="true" />
+                  <HBox spacing="8.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleCancelOrder" prefWidth="94.0" styleClass="cancel-button" text="Submit" />
+                        <Button mnemonicParsing="false" onAction="#closePopups" prefWidth="94.0" styleClass="popup-close-button" text="Close" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

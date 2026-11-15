@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Put this HBox where the order cards belong in your dashboard. -->
+<HBox alignment="CENTER" spacing="18.0" xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Starter_App.Starter_Ap.OrderOverviewController">
+   <children>
+      <!-- Each StackPane keeps the labels on top of its picture. -->
+      <StackPane prefHeight="150.0" prefWidth="170.0" styleClass="order-card processing-card">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="170.0" opacity="0.28" preserveRatio="false">
+               <image><Image url="@images/Frame-8.png" /></image>
+            </ImageView>
+            <VBox alignment="CENTER" spacing="6.0">
+               <children>
+                  <Label styleClass="metric-title" text="Processing" />
+                  <Label fx:id="processingCountLabel" styleClass="metric-value" text="0" />
+                  <Label styleClass="metric-helper" text="Orders being prepared" />
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+
+      <StackPane prefHeight="150.0" prefWidth="170.0" styleClass="order-card shipped-card">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="170.0" opacity="0.28" preserveRatio="false">
+               <image><Image url="@images/Frame-7.png" /></image>
+            </ImageView>
+            <VBox alignment="CENTER" spacing="6.0">
+               <children>
+                  <Label styleClass="metric-title" text="Shipped" />
+                  <Label fx:id="shippedCountLabel" styleClass="metric-value" text="0" />
+                  <Label styleClass="metric-helper" text="Orders on the way" />
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+
+      <StackPane prefHeight="150.0" prefWidth="170.0" styleClass="order-card returned-card">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="170.0" opacity="0.28" preserveRatio="false">
+               <image><Image url="@images/Frame-10.png" /></image>
+            </ImageView>
+            <VBox alignment="CENTER" spacing="6.0">
+               <children>
+                  <Label styleClass="metric-title" text="Returned" />
+                  <Label fx:id="returnedCountLabel" styleClass="metric-value" text="0" />
+                  <Label styleClass="metric-helper" text="Returned orders" />
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+
+      <StackPane prefHeight="150.0" prefWidth="170.0" styleClass="order-card delivered-card">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="170.0" opacity="0.28" preserveRatio="false">
+               <image><Image url="@images/Frame-6.png" /></image>
+            </ImageView>
+            <VBox alignment="CENTER" spacing="6.0">
+               <children>
+                  <Label styleClass="metric-title" text="Delivered" />
+                  <Label fx:id="deliveredCountLabel" styleClass="metric-value" text="0" />
+                  <Label styleClass="metric-helper" text="Completed orders" />
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+
+      <StackPane prefHeight="150.0" prefWidth="170.0" styleClass="order-card total-orders-card">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="170.0" opacity="0.28" preserveRatio="false">
+               <image><Image url="@images/Frame-9.png" /></image>
+            </ImageView>
+            <VBox alignment="CENTER" spacing="6.0">
+               <children>
+                  <Label styleClass="metric-title" text="Total Orders" />
+                  <Label fx:id="totalOrdersCountLabel" styleClass="metric-value" text="0" />
+                  <Label styleClass="metric-helper" text="All order statuses" />
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</HBox>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="DashboardPage" prefHeight="400.0" prefWidth="600.0" styleClass="DBScreen" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Starter_App.Starter_Ap.DashboardController">
+
+   <stylesheets>
+      <URL value="@style.css" />
+   </stylesheets>
+
+   <children>
+      <VBox fx:id="Sidebar" alignment="TOP_CENTER" layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="132.0" spacing="7.0" styleClass="Sidebar">
+         <children>
+            <ImageView fitHeight="62.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/Vector-6.png" />
+               </image>
+            </ImageView>
+            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="112.0" styleClass="sidebar-button active-sidebar-button" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Customer" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Product" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@images/icon_janitor.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="OrdersManagement" mnemonicParsing="false" onAction="#Sidebar" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Orders" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Delivery" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0">
+                     <image>
+                        <Image url="@images/icon_truck.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Inventory" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@images/icon_clock.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="112.0" styleClass="sidebar-button" text="Review" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="23.0">
+                     <image>
+                        <Image url="@images/icon_mail.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+
+      <Text fill="WHITE" layoutX="153.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orders Analytic">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+
+      <ImageView fitHeight="17.0" fitWidth="23.0" layoutX="153.0" layoutY="48.0">
+         <image>
+            <Image url="@images/Rectangle%2015.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="183.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shipped">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+
+      <ImageView fitHeight="17.0" fitWidth="23.0" layoutX="282.0" layoutY="48.0">
+         <image>
+            <Image url="@images/Rectangle%2011.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="312.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Processing">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+
+      <ImageView fitHeight="17.0" fitWidth="23.0" layoutX="153.0" layoutY="75.0">
+         <image>
+            <Image url="@images/Rectangle%2014.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="183.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Returned">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+
+      <ImageView fitHeight="17.0" fitWidth="23.0" layoutX="282.0" layoutY="75.0">
+         <image>
+            <Image url="@images/Rectangle%2013.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="312.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+
+      <HBox layoutX="150.0" layoutY="112.0" prefHeight="75.0" prefWidth="120.0">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Frame-9.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label fx:id="TotalOrderID" alignment="CENTER" layoutX="150.0" layoutY="188.0" prefWidth="120.0" text="Label" textFill="WHITE" />
+
+      <ImageView fitHeight="75.0" fitWidth="120.0" layoutX="300.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Frame-7.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="ShippedorderID" alignment="CENTER" layoutX="300.0" layoutY="188.0" prefWidth="120.0" text="Label" textFill="WHITE" />
+
+      <ImageView fitHeight="75.0" fitWidth="120.0" layoutX="455.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Frame-10.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="Returnedorderid" alignment="CENTER" layoutX="455.0" layoutY="188.0" prefWidth="120.0" text="Label" textFill="WHITE" />
+
+      <HBox layoutX="150.0" layoutY="223.0" prefHeight="75.0" prefWidth="120.0">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Frame-6.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label fx:id="Deliveredorderid" alignment="CENTER" layoutX="150.0" layoutY="299.0" prefWidth="120.0" text="Label" textFill="#fffbfb" />
+
+      <ImageView fitHeight="75.0" fitWidth="120.0" layoutX="150.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Frame-8.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="ProcessingorderID" alignment="CENTER" layoutX="150.0" layoutY="374.0" prefWidth="120.0" text="Label" textFill="WHITE" />
+
+      <ImageView fitHeight="76.0" fitWidth="120.0" layoutX="650.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/E-commerce%20dashboard%20UI%20design%20(Community)/Frame-7.png" />
+         </image>
+      </ImageView>
+
+      <Text fill="WHITE" layoutX="391.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top Products">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <BarChart fx:id="topProductsChart" layoutX="290.0" layoutY="235.0" prefHeight="160.0" prefWidth="295.0">
+         <xAxis>
+            <CategoryAxis fx:id="categoryAxis" label="Product" side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis fx:id="numberAxis" label="Sold" side="LEFT" />
+         </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

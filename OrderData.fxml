@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<stylesheets>
+      <URL value="@style.css" />
+   </stylesheets>
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="&lt;" textFill="#fffefe">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Text fill="WHITE" layoutX="52.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Data">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <TextField layoutX="73.0" layoutY="59.0" prefHeight="26.0" prefWidth="504.0" promptText="   🔍     Search  Orders ID , Customers ,  Products" style="-fx-background-color: #1D2633;" />
+      <TableView fx:id="TableAll" layoutX="-6.0" layoutY="158.0" prefHeight="238.0" prefWidth="583.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Check box" />
+          <TableColumn prefWidth="75.0" text="Order ID" />
+            <TableColumn prefWidth="75.0" text="Customer" />
+            <TableColumn prefWidth="75.0" text="Date" />
+            <TableColumn prefWidth="75.0" text="Product" />
+            <TableColumn prefWidth="75.0" text="Status" />
+            <TableColumn prefWidth="75.0" text="Total" />
+            <TableColumn prefWidth="75.0" text="Payments" />
+        </columns>
+      </TableView>
+      <ScrollBar fx:id="scrollbar" layoutX="577.0" layoutY="189.0" orientation="VERTICAL" prefHeight="212.0" prefWidth="16.0" />
+      <Button fx:id="All" layoutX="46.0" layoutY="109.0" mnemonicParsing="false" style="-fx-background-color: #375476;" text="ALL" textFill="#fffefe" />
+      <Button fx:id="Processing" layoutX="100.0" layoutY="111.0" mnemonicParsing="false" style="-fx-background-color: #121B26;" text="Processing" textFill="#fffefe" />
+      <Button fx:id="Delivered" layoutX="179.0" layoutY="111.0" mnemonicParsing="false" style="-fx-background-color: #121B26;" text="Delivery" textFill="#fffefe" />
+      <Button fx:id="Shipping" layoutX="243.0" layoutY="110.0" mnemonicParsing="false" style="-fx-background-color: #121B26;" text="Shipping" textFill="#fffefe" />
+      <Button fx:id="Return" layoutX="310.0" layoutY="109.0" mnemonicParsing="false" style="-fx-background-color: #121B26;" text="Return" textFill="#fffefe" />
+   </children>
+</AnchorPane>
